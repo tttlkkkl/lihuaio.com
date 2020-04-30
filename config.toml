@@ -25,7 +25,7 @@ pluralizeListTitles = false
 summaryLength = 42
 
 # 是否开启 GitHub 风格的 Emoji 书写方式
-enableEmoji = false
+enableEmoji = true
 
 # 脚注的返回链接中的文本
 footnoteReturnLinkContents = "↩"
@@ -51,7 +51,6 @@ uglyURLs = false
 
 # 类别
 [taxonomies]
-    category = "categories"
     tag = "tags"
 
 # 修改时间
@@ -175,24 +174,6 @@ uglyURLs = false
 
 [menu]
     ## 菜单栏
-    # [[menu.main]]
-    #     url = "/"
-    #     name = "首页"
-    #     weight = 1
-    #     pre = "internal"
-    #     post = "home"
-    [[menu.main]]
-        url = "/posts/"
-        name = "文章"
-        weight = 2
-        pre = "internal"
-        post = "archive"
-    [[menu.main]]
-        url = "/categories/"
-        name = "分类"
-        weight = 3
-        pre = "internal"
-        post = "th"
     [[menu.main]]
         url = "/tags/"
         name = "标签"
@@ -200,16 +181,22 @@ uglyURLs = false
         pre = "internal"
         post = "tags"
     [[menu.main]]
+        url = "/archives/"
+        name = "归档"
+        weight = 3
+        pre = "internal"
+        post = "archive"
+    [[menu.main]]
         url = "/about/"
         name = "关于"
-        weight = 5
+        weight = 6
         pre = "internal"
         post = "user-circle"
     [[menu.main]]
-        weight = 6
+        weight = 7
         identifier = "theme-switcher"
     [[menu.main]]
-        weight = 7
+        weight = 8
         identifier = "lang-switcher"
 
     ## 首页的底部链接
@@ -234,39 +221,42 @@ uglyURLs = false
 
     ## 社交栏
     [[menu.socials]]
-        url = "https://github.com/reuixiy"
+        url = "https://github.com/tttlkkkl"
         name = "GitHub"
         weight = 1
         pre = "external"
-    [[menu.socials]]
-        url = "https://t.me/yixiuer"
-        name = "Telegram"
-        weight = 2
-        pre = "external"
-    [[menu.socials]]
-        url = "https://twitter.com/reuixiy"
-        name = "Twitter"
-        weight = 3
-        pre = "external"
+    # [[menu.socials]]
+    #     url = "https://t.me/yixiuer"
+    #     name = "Telegram"
+    #     weight = 2
+    #     pre = "external"
+    # [[menu.socials]]
+    #     url = "https://twitter.com/reuixiy"
+    #     name = "Twitter"
+    #     weight = 3
+    #     pre = "external"
 
     ## 链接栏
     [[menu.links]]
         url = "/"
-        name = "Home"
+        name = "首页"
         weight = 1
         pre = "internal"
     [[menu.links]]
         url = "/tags/"
-        name = "Tags"
+        name = "标签"
         weight = 2
         pre = "internal"
     [[menu.links]]
-        url = "/coldplay/"
-        name = "Coldplay"
+        url = "/letter/"
+        name = "三月情书"
         weight = 3
         pre = "internal"
-
-
+    [[menu.links]]
+        url = "/categories/"
+        name = "分类"
+        weight = 4
+        pre = "internal"
 ##########################################
 # 主题配置
 
@@ -333,7 +323,7 @@ uglyURLs = false
     # 说明：对弹性布局的顶栏无效
 
     # 是否按文章分区高亮当前菜单项
-    activeInSection = false
+    activeInSection = true
     # 说明：如果开启，那么当某一文章的分区名是某
     #      一菜单项中的 `url` 时，该文章页面中
     #      的该菜单项也会被高亮
@@ -390,11 +380,11 @@ uglyURLs = false
     # 站点信息
 
     # 站点的 LOGO
-    siteLogo = "/icons/icon.png"
+    siteLogo = "/icons/apple-touch-icon.png"
     # 说明：用于 JSON-LD、Open Graph
 
     # 站点的描述
-    siteDescription = "MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。"
+    siteDescription = "一个互联网老兵的互联网记忆。分享前沿的后端技术，包括docker、k8s、micro、php、golang等爬坑心得。也分享自己的人生感悟，共勉之。"
     # 说明：用于 HTML 的头部元数据、JSON-LD、
     #      Open Graph、Atom、RSS
 
@@ -424,7 +414,7 @@ uglyURLs = false
     # 的树状分类，故如需保留树状分类，建议适应
     # Hugo 的设计理念——分区。
 
-    categoryBy = "categories"
+    categoryBy = "sections"
     # 注意：如果你设置为 `sections`，请务必将
     #      此配置文件中的类别（taxonomies）中
     #      的 `categories` 删除，不然分类页
@@ -511,7 +501,7 @@ uglyURLs = false
     # 说明：分区的名字即站点的 content 目录下
     #      的文件夹的名字。
 
-    # mainSections = ["posts"]
+    mainSections = ["posts","letter","life","tech"]
 
 
     ######################################
@@ -1191,14 +1181,14 @@ uglyURLs = false
     # 极简页脚
 
     # 是否开启
-    enableMinimalFooter = false
-    enableVerticalBarStructure = false
+    enableMinimalFooter = true
+    enableVerticalBarStructure = true
     # 说明：如果开启此项，显示在右边的部类或分区
     #      将会包含全部的第一级部类或分区，并且
     #      以竖线（|）分隔开来。
 
     # 是否开启关于页面的极简页脚
-    enableAboutPageMinimalFooter = false
+    enableAboutPageMinimalFooter = true
 
 
     ######################################
@@ -1246,7 +1236,7 @@ uglyURLs = false
     displaySiteCopyright = true
 
     # 自定义页脚（支持 Markdown）
-    customFooter = ""
+    customFooter = "[粤ICP备16093501号](http://www.beian.miit.gov.cn)"
 
     displayBusuanziSiteUVAndPV = false
     busuanziSiteUVText = "本站访客数"
