@@ -3,9 +3,9 @@ name: build
 
 steps:
   - name: build-static
-    image: golang
+    image: gohugoio/hugo
+    pull: if-not-exists
     commands:
-    - go get -v github.com/gohugoio/hugo
     - hugo
   - name: build-docker-image
     image: plugins/docker
