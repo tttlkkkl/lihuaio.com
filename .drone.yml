@@ -2,8 +2,20 @@ kind: pipeline
 name: build
 
 steps:
-  - name: backend
+  - name: build-static
     image: golang
     commands:
     - go get -v github.com/gohugoio/hugo
     - hugo
+  - name: build-docker-image
+    image: plugins/docker
+    pull: if-not-exists
+    settings:
+      registry: hub.docker.com
+      repo: tttlkkkl/lihuaio.com
+      tags: ${DRONE_TAG}
+      purge: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
