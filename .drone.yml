@@ -1,0 +1,9 @@
+kind: pipeline
+name: build
+
+steps:
+  - name: backend
+    image: golang
+    commands:
+    - go get -v github.com/gohugoio/hugo
+    - hugo
