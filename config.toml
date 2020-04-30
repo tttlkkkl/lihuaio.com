@@ -212,6 +212,59 @@ uglyURLs = false
         weight = 7
         identifier = "lang-switcher"
 
+    ## 首页的底部链接
+    # [[menu.home]]
+    #     url = "/life/"
+    #     weight = 1
+    #     pre = "internal"
+    #     post = "grav"
+    #     identifier = "life"
+    # [[menu.home]]
+    #     url = "/tech/"
+    #     weight = 2
+    #     pre = "internal"
+    #     post = "wpexplorer"
+    #     identifier = "tech"
+    # [[menu.home]]
+    #     url = "/about/"
+    #     weight = 3
+    #     pre = "internal"
+    #     post = "user-circle"
+    #     identifier = "about"
+
+    ## 社交栏
+    [[menu.socials]]
+        url = "https://github.com/reuixiy"
+        name = "GitHub"
+        weight = 1
+        pre = "external"
+    [[menu.socials]]
+        url = "https://t.me/yixiuer"
+        name = "Telegram"
+        weight = 2
+        pre = "external"
+    [[menu.socials]]
+        url = "https://twitter.com/reuixiy"
+        name = "Twitter"
+        weight = 3
+        pre = "external"
+
+    ## 链接栏
+    [[menu.links]]
+        url = "/"
+        name = "Home"
+        weight = 1
+        pre = "internal"
+    [[menu.links]]
+        url = "/tags/"
+        name = "Tags"
+        weight = 2
+        pre = "internal"
+    [[menu.links]]
+        url = "/coldplay/"
+        name = "Coldplay"
+        weight = 3
+        pre = "internal"
 
 
 ##########################################
@@ -295,11 +348,28 @@ uglyURLs = false
     # 3. posts     文章摘要
     # 4. page      普通页面
 
-    homeLayout = "posts"
+    homeLayout = "poetry"
 
     ## 「诗意人生」
     # 诗句，支持 Markdown
-    homePoetry = []
+    homePoetry = [
+        "二月的风捎来青梅的花香",
+        "是来自寒冬的祝福",
+        "大地从沉睡中醒来",
+        "是依偎在你怀中的我",
+        "那不知名的绿芽",
+        "就是春天与大地的约定",
+        "--",
+        "你说",
+        "不看路人，不换爱人",
+        "我马上刻印在灵魂里",
+        "作为爱的契约",
+        "--",
+        "来自你心灵的读白",
+        "像这三月含羞的温柔",
+        "是我无法辜负的",
+        "你的温情",
+        ]
     # 底部链接的内间距，单位：em
     homeLinksPadding = 1
 
@@ -320,7 +390,7 @@ uglyURLs = false
     # 站点信息
 
     # 站点的 LOGO
-    siteLogo = "/icons/apple-touch-icon.png"
+    siteLogo = "/icons/icon.png"
     # 说明：用于 JSON-LD、Open Graph
 
     # 站点的描述
@@ -333,7 +403,7 @@ uglyURLs = false
     # 注意：请保持此格式，更改数字
 
     # 站点的推特帐号
-    siteTwitter = "reuixiy"
+    siteTwitter = ""
     # 说明：用于 Twitter Cards
 
 
@@ -571,7 +641,7 @@ uglyURLs = false
     # 说明：仅在生产环境（production）下渲染
 
     # 是否开启（全局设置）
-    enableComments = false
+    enableComments = true
     # 说明：文章的 Front Matter 中的 `comments`
     #      的优先级高于此处
 
@@ -599,12 +669,12 @@ uglyURLs = false
     # 说明：https://valine.js.org/
 
     ## Utterances
-    enableUtterances = false
-    utterancesRepo = ""
+    enableUtterances = true
+    utterancesRepo = "https://github.com/tttlkkkl/lihuaio.com.git"
     utterancesIssueTerm = "pathname"
     utterancesTheme = "github-light"
     utterancesThemeDark = "photon-dark"
-    utterancesLabel = ""
+    utterancesLabel = "comments"
     # 说明：https://utteranc.es/
 
 
