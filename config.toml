@@ -1,7 +1,7 @@
 ##########################################
 # 站点配置
 
-baseURL = "https://lihuaio.com"
+# baseURL = "https://lihuaio.com/"
 title = "泛黄的日历"
 languageCode = "zh-CN"
 hasCJKLanguage = true
@@ -41,7 +41,7 @@ paginate = 5
 
 # URL 相关
 disablePathToLower = false
-relativeURLs = false
+relativeURLs = true
 uglyURLs = false
 
 # URL 结构

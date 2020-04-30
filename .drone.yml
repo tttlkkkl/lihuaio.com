@@ -6,7 +6,7 @@ steps:
     image: gohugoio/hugo
     pull: if-not-exists
     commands:
-    - hugo
+    - hugo -D
   - name: build-docker-image
     image: plugins/docker
     pull: if-not-exists
