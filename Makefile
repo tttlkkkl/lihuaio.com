@@ -4,3 +4,5 @@ push:
 	docker build -t tttlkkkl/lihuaio.com . && docker push tttlkkkl/lihuaio.com
 d: 
 	hugo server -D --environment=production
+oss:
+	hugo -D && ossutil cp -r public oss:/lihuaio/ -u
