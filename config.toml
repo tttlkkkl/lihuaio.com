@@ -1,7 +1,7 @@
 ##########################################
 # 站点配置
 
-# baseURL = "https://lihuaio.com/"
+baseURL = "https://lihuaio.com/"
 title = "泛黄的日历"
 languageCode = "zh-CN"
 hasCJKLanguage = true
@@ -12,7 +12,7 @@ copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0
 theme = "meme"
 
 # `hugo new` 新建文章自动打开的文本编辑器
-newContentEditor = "gedit"
+newContentEditor = ""
 
 # i18n
 defaultContentLanguage = "zh"
