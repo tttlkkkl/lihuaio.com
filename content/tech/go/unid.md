@@ -1,7 +1,6 @@
 ---
 title: "golang 利用原子操作实现唯一ID生成器"
 date: 2017-06-20T12:37:53+08:00
-draft: true
 tags:
 - go
 - 并发

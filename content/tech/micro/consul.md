@@ -1,7 +1,6 @@
 ---
 title: "consul 集群测试"
 date: 2018-01-06T22:17:35+08:00
-draft: true
 tags:
 - consul
 - 微服务

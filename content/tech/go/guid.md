@@ -1,7 +1,6 @@
 ---
 title: "golang 实现的 GUID 发号器"
 date: 2017-06-23T12:42:32+08:00
-draft: true
 tags:
 - go
 - 并发

@@ -1,7 +1,7 @@
 ---
 title: "nsq 组件以及配置"
 date: 2017-04-01T15:36:59+08:00
-draft: true
+draft: false
 tags:
  - nsq
 ---

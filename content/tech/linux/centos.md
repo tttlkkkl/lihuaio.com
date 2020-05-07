@@ -1,7 +1,6 @@
 ---
 title: "centos7在vbox中最小化安装以及共享文件夹设置实践"
 date: 2017-08-21T19:56:44+08:00
-draft: true
 tags: 
 - VirtualBox
 - centos

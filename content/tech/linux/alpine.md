@@ -1,7 +1,6 @@
 ---
 title: "VirtualBox 安装 alpine linux 记录"
 date: 2018-06-24T14:55:00+08:00
-draft: true
 tags:
 - alpine
 - linux

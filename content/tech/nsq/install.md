@@ -1,7 +1,7 @@
 ---
 title: "nsq 安装方式"
 date: 2017-03-31T13:08:32+08:00
-draft: true
+draft: false
 tags:
     - nsq
 ---

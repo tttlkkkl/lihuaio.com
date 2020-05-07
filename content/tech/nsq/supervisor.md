@@ -1,7 +1,7 @@
 ---
 title: "将nsq加入supervisor管理"
 date: 2017-04-01T15:56:20+08:00
-draft: true
+draft: false
 tags:
     - nsq
     - supervisor
