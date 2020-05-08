@@ -242,16 +242,16 @@ uglyURLs = false
         name = "首页"
         weight = 1
         pre = "internal"
-    [[menu.links]]
-        url = "/tags/"
-        name = "标签"
-        weight = 2
-        pre = "internal"
-    [[menu.links]]
-        url = "/letter/"
-        name = "三月情书"
-        weight = 3
-        pre = "internal"
+    # [[menu.links]]
+    #     url = "/tags/"
+    #     name = "标签"
+    #     weight = 2
+    #     pre = "internal"
+    # [[menu.links]]
+    #     url = "/letter/"
+    #     name = "三月情书"
+    #     weight = 3
+    #     pre = "internal"
     [[menu.links]]
         url = "/categories/"
         name = "分类"
@@ -660,7 +660,7 @@ uglyURLs = false
 
     ## Utterances
     enableUtterances = true
-    utterancesRepo = "https://github.com/tttlkkkl/lihuaio.com.git"
+    utterancesRepo = "tttlkkkl/lihuaio.com"
     utterancesIssueTerm = "pathname"
     utterancesTheme = "github-light"
     utterancesThemeDark = "photon-dark"
