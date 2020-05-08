@@ -32,8 +32,9 @@ hugo --environment=production && ossutil cp -r public oss://<bucket>/ -u
 7. 设置 bucket 读写权限为 `公共读`。
 8. 申请一个免费证书，阿里云 SSL 证书服务，购买证书（没错免费的0元购买），单域名>>>DV SSL>>>免费版，按照页面说明完成证书申请即可。申请完成后下载`其他`证书类型。当然如果你能忍受3个月手动换一次证书的痛楚完全可以使用`acme.sh`签发的证书。
 9. 设置域名，传输管理>>>绑定用户域名，将你自己的域名绑定上去，设置好证书托管，并且设置好域名 CNAME 解析之后就大功告成。
-10. 为了更新方便，可以在站点项目根目录下创建`Makefile`文件，将常用命令写在其中，一条命令完成更新。
-11. 贴上我的`Makefile`文件内容和本站源码地址：
+10. oss 无法设置http强制跳转https，如果用的和我是一个主题可以在配置文件中开启`enableForceHTTPS`,用 js 实现前端跳转。
+11. 为了更新方便，可以在站点项目根目录下创建`Makefile`文件，将常用命令写在其中，一条命令完成更新。
+12. 贴上我的`Makefile`文件内容和本站源码地址：
 ```
 run:
 	rm -rf public && hugo --environment=production && docker build -t tttlkkkl/lihuaio.com . && docker run --rm -it -p 80:80 tttlkkkl/lihuaio.com
