@@ -1327,9 +1327,9 @@ uglyURLs = false
     # 404 页面
 
     # 视频封面
-    fofPoster = ""
+    fofPoster = "./404.jpg"
 
     # 视频地址
-    fofVideoWebm = ""
-    fofVideoMp4 = ""
+    fofVideoWebm = "/404.mp4"
+    fofVideoMp4 = "/404.webm"
     # 说明：视频地址可留空（""）
