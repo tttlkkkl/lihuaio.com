@@ -237,11 +237,11 @@ uglyURLs = false
     #     pre = "external"
 
     ## 链接栏
-    [[menu.links]]
-        url = "/"
-        name = "首页"
-        weight = 1
-        pre = "internal"
+    # [[menu.links]]
+    #     url = "/"
+    #     name = "首页"
+    #     weight = 1
+    #     pre = "internal"
     # [[menu.links]]
     #     url = "/tags/"
     #     name = "标签"
