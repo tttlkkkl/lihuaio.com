@@ -61,12 +61,28 @@ docker run -it --name nginx --rm -p 80:80 -v $(pwd)/index.html:/usr/share/nginx/
 # todo 见下一小节
 ```
 ### 认识 `Dockerfile`
+普遍的把`docker`比做集装箱，那么这个`Dockerfile`就是集装箱的货运单，它定义了集装箱包含哪些内容，`docker`按照这个货运单去创建集装箱（镜像）。
 
-### `docker` 三剑客
+这里就不再深入讨论`Dockerfile`。直接继续上一小节的内容以对`Dockerfile`有个初步的认识。
+1. 创建一个 Dockerfile 文件,并编辑写入以下内容
+```Dockerfile
+FROM nginx
+COPY index.html /usr/share/nginx/html/index.html 
+```
+确保整个过程中的`index.html`和`Dockerfile`都在一个文件夹下，然后运行以下镜像构建命令,将网页文件`index.html`打包到`nginx`这个运行时环境中，即名为`docker-study`的镜像：
+```shell
+docker build -t docker-study .
+```
+运行镜像看看是否可以达到预期:
+```
+docker run -p 80:80 nginx-study
+```
+举一反三，我们也可以直接将编辑好的`nginx`配置打包到镜像中，以达到更多的目的。
+### 了解 `docker` 三剑客
 
 #### `docker swarm`
 `docker`社区原生提供的容器集群管理工具。`kubernetes`已经是事实上的容器编排标准，尽管已经合并到`docker`主程序上，但是依然很尴尬。所以除非兴趣使然或者确实需要我建议直接去学习`k8s`，毕竟我就是从`swarm`转到`k8s`的。
 #### `docker compose`
 用来组装多容器应用的工具，可以在`swarm`集群中部署分布式应用，这个还是比较有用的可以让你少写很多重复命令，不仅在实际生产环境在平常开发中也是有必要掌握一下的。
 #### `docker machine`
-支持多平台安装`docker`的工具，和`k8s`的`kubeadm`是一个性质的工具。
+支持多平台安装`docker`的工具，和`k8s`的`kubeadm`是一个性质的工具，除非必要这个不用理会。
