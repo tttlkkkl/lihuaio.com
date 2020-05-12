@@ -29,19 +29,19 @@ tags:
 
 #### 方法集
 
-- 类型 T ⽅方法集包含全部 receiver T ⽅方法。
-- 类型 *T ⽅方法集包含全部 receiver T + *T ⽅方法。
-- 如类型 S 包含匿名字段 T，则 S ⽅方法集包含 T ⽅方法。 
-- 如类型 S 包含匿名字段 *T，则 S ⽅方法集包含 T + *T ⽅方法。 
-- 不管嵌⼊入 T 或 *T，*S ⽅方法集总是包含 T + *T ⽅方法。
-- ⽤用实例 value 和 pointer 调⽤用⽅方法 (含匿名字段) 不受⽅方法集约束，编译器总是查找全部 ⽅方法，并⾃自动转换 receiver 实参。
+- 类型 `T` ⽅方法集包含全部 `receiver T` ⽅方法。
+- 类型 `*T` ⽅方法集包含全部 `receiver T + *T` ⽅方法。
+- 如类型 `S` 包含匿名字段 `T`，则 `S` ⽅方法集包含 `T` ⽅方法。 
+- 如类型 `S` 包含匿名字段 `*T`，则 `S` ⽅方法集包含 `T + *T` ⽅方法。 
+- 不管嵌⼊入 `T` 或 `*T`，`*S` ⽅方法集总是包含 `T + *T` ⽅方法。
+- ⽤用实例 `value` 和 `pointer` 调⽤用⽅方法 (含匿名字段) 不受⽅方法集约束，编译器总是查找全部 ⽅方法，并⾃自动转换 `receiver` 实参。
 
 #### 表达式
 根据调⽤用者不同，⽅方法分为两种表现形式:
 ```
 instance.method(args...) ---> <type>.func(instance, args...)
 ```
-前者称为 method value，隐式传递极受着。后者 method expression，显示传递接收者。
+前者称为 `method value`，隐式传递极受着。后者 `method expression`，显示传递接收者。
 
 ```go
 type Data struct{}
