@@ -1,5 +1,5 @@
 ---
-title: "GO笔记——slice、map"
+title: "GO笔记之slice、map"
 date: 2020-05-11T18:01:35+08:00
 draft: false
 tags:

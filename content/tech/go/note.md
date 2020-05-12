@@ -1,5 +1,5 @@
 ---
-title: "GO笔记——基本类型和语法"
+title: "GO笔记之基本类型和语法"
 date: 2020-05-11T11:14:05+08:00
 draft: false
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "GO笔记——结构体、方法和接口"
+title: "GO笔记之结构体、方法和接口"
 date: 2020-05-12T11:52:41+08:00
 draft: false
 tags:
