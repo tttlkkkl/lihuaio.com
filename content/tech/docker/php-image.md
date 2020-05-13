@@ -6,6 +6,7 @@ tags:
 - docker
 - 容器技术
 - php
+- ops
 ---
 
 ### 引言
@@ -76,7 +77,7 @@ zlib
 - `opcache` 既然是生产环境可用，那么我们必须为运行性能作一些考虑，所以我认为这个扩展是必须添加的，可以设定为按需开启，毕竟开发环境开启`opcache`并不是一个明智的做法。
 - `bcmath` 没有这个库的话可能一些框架或者类库的`composer`依赖校验会无法通过。而且不确定我们的应用程序中是否需要用到它，但是可以预见它被用到的可能性很大。毕竟程序的本质就是运算。
 - `composer` 当然，这个并不是扩展，但是它需要运行在当前`php`环境中，才能检查我们`php`环境是否满足一个类库的运行，所以它必须要包含在基础镜像中。最简洁的做法是事先下载好其`phar`包，然后直接打包到当前镜像中。
-##### 构建准备
+#### 构建准备
 - 下载`composer`运行包，放置在当前工程目录下。下载连接:[composer](https://github.com/composer/composer/releases)。
 - 在当前工程目录下创建文件`conf.d/date.ini`， 设置`PHP`默认时区为东8区。其内容为:
 ```ini
@@ -90,7 +91,7 @@ opcache.revalidate_freq=60
 opcache.max_accelerated_files=100000
 opcache.validate_timestamps=1
 ```
-##### 最终的`Dockerfile`
+#### 最终的`Dockerfile`
 
 说再多不如直接看代码看注释:
 ```Dockerfile

@@ -5,6 +5,7 @@ draft: false
 tags:
 - docker
 - 容器技术
+- ops
 ---
 
 ### 引言
@@ -28,14 +29,14 @@ curl https://get.docker.com|sh
 ```
 当然也可以按照docker文档中的方式一步步安装：[`1docker`安装文档](https://docs.docker.com/engine/install/)。
 ### 先玩一下 `docker`
-##### 启动一个 `nginx` 服务
+#### 启动一个 `nginx` 服务
 ```shell
 docker run -it --name nginx --rm -p 80:80 nginx
 ```
 如果80端口事先没有被占用，在浏览器访问`127.0.0.1`就可以看到熟悉的`nginx`欢迎界面了。
 #### 让`nginx`服务运行一个自定义页面
 不更改nginx配置的情况下，输出一个自定义页面。具体做法就是用我们编写好的页面替换`nginx`默认的欢迎页面。
-##### 查看`nginx`默认首页的位置：
+#### 查看`nginx`默认首页的位置：
 ```shell
 #进入已经在运行的nginx容器：
 docker exec -it nginx /bin/bash
@@ -49,7 +50,7 @@ docker run -it --rm nginx cat /etc/nginx/conf.d/default.conf
 以上都是为了查看`nginx`镜像中对`nginx`的默认站点的配置,你可能已经发现了在`docker run`命令最后面是可以运行任何当前镜像支持的命令的，不指定命令的时候运行镜像默认指定的命令，这个命令由`Dockerfile`文件定义。
 可以看到默认首页位于 `/usr/share/nginx/html` 目录下,我们现在要做的就是使用自己创建的`index.html`代替默认的`index.html`。
 
-##### 替换默认首页
+#### 替换默认首页
 ```shell
 # 创建自定义页面：
 echo 'hello world!'>index.html
