@@ -97,6 +97,8 @@ a,b,c,你,好,
   - `Pointer` 可以转换为任何类型的指针值
   - `uintptr` 可以转换为 `Pointer`。`uintptr`是 Go 的内置类型。返回无符号整数，可存储一个完整的地址，用于指针运算。也就是说将指针转换为`uintptr`可以变相实现指针运算。
   - `Pointer` 可以转换为 `uintptr`。
+  - `uintptr` 被GC当作普通整数，不能阻止所"引用"的对象被收回。
+  - 指正构成的循环引用加上`runtime.SetFinalizer`会导致内存泄露。
 引用 https://segmentfault.com/a/1190000017389782 中的内容说明:
 ``` golang
 type Num struct{
