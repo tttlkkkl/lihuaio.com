@@ -46,7 +46,7 @@ go tool pprof -http=:1234 http://address:8080/debug/pprof/profile?seconds=30
 
 可以看出两个数据库操作方法`GetRowsShareTimeInterval`和`GetActionCountByModules`占用了大量的 cpu 时间。
 
-回查源码，此逻辑是通过 `go-micro` 事件接收一个定时任务然后启动一个协程遍历一个客户表。先取出 1000 条客户数据然后为每一个客户启动一个协程分别执行一系列的计分操作。每一个计分过程中对数据库进行了多次统计查询，计分完毕后更新客户评分。该任务执行时启动 1000 个左右的协程占用大量的 cpu 时间，导致 grpc 服务协程处理超时。
+回查源码，此逻辑是通过 `go-micro` 事件接收一个定时任务然后启动一个协程遍历一个客户表。先取出 1000 条客户数据然后为每一个客户启动一个协程分别执行一系列的计分操作。每一个计分过程中对数据库进行了多次统计查询，计分完毕后更新客户评分。该任务执行时启动 1000 个左右的协程占用大量的 cpu 时间，导致 grpc 服务协程得不到及时调度。
 
 浏览器打开`http://address:8080/debug/pprof/`如下：
 
@@ -99,7 +99,7 @@ func Score() {
 ```
 变更后的`Score`方法：
 ```go
-//Score 客户推荐指数计算定时任务逻辑
+// Score 客户推荐指数计算定时任务逻辑
 func Score() {
 	// 遍历客户表
 	com.Log.Info("==========>开始对遍历客户信息，进行推荐指数计算", time.Now().Format(t.TimeFormat))
@@ -108,11 +108,11 @@ func Score() {
 	}()
 	var wg = &sync.WaitGroup{}
 	// 任务协程数量
-	var taskNum = 5
+	var taskNum = 10
 	var dataCH = make(chan *entity.CustomerRelation, taskNum)
-	wg.Add(2)
 	// 启动一个协程负责从数据库遍历数据
 	go func() {
+		wg.Add(1)
 		var limit uint64 = 1000
 		var offset uint64 = 0
 		for {
@@ -135,25 +135,27 @@ func Score() {
 		}
 	}()
 	// 任务协程
-	go func() {
+	taskWorker := func() {
+		wg.Add(1)
 		for {
 			select {
 			case v, ok := <-dataCH:
 				if ok && v != nil {
-					go func() {
-						DoScore(v.UID, v.CrmID, nil)
-					}()
-				}
-				if !ok && len(dataCH) == 0 {
+					DoScore(v.UID, v.CrmID, nil)
+				} else {
 					// 通道关闭，退出协程
 					wg.Done()
 					runtime.Goexit()
 				}
 			}
 		}
-	}()
+	}
+	// 启动指定数量的协程
+	for i := 0; i < taskNum; i++ {
+		go taskWorker()
+	}
 	wg.Wait()
 }
 ```
 
-悲剧的是即使我把用于任务处理的协程数量下降到5个仍然存在 grpc 调用超时的问题。
+事实证明控制协程数量可以修复超时问题。
