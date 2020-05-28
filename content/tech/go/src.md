@@ -1,5 +1,5 @@
 ---
-title: "GO语言优秀学习资源链接汇总"
+title: "GO语言优秀学习资源链接收录"
 date: 2020-05-24T11:03:37+08:00
 draft: false
 tags:
