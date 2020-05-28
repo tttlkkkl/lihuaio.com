@@ -1,9 +1,10 @@
 ---
 title: "GO语言优秀学习资源链接汇总"
-date: 2020-05-28T11:03:37+08:00
+date: 2020-05-24T11:03:37+08:00
 draft: false
 tags:
 - go
+- link
 ---
 ## 优秀博客
 - [《No Headback》](http://xargin.com)
