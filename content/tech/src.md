@@ -6,7 +6,7 @@ tags:
 - link
 ---
 ## GO 学习资源收录
-- [《GO语言优秀学习资源链接汇总》](/tech/src/)
+- [《GO语言优秀学习资源链接汇总》](/tech/go/src/)
 
 ## linux
 
