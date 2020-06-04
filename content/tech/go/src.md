@@ -16,3 +16,4 @@ tags:
 - [《深度解密Go语言之 scheduler》](https://juejin.im/post/5d6cfa13518825267a75685e)
 - [《Go 语言问题集(Go Questions)》](https://www.bookstack.cn/read/qcrao-Go-Questions/README.md)
 - [《GO 语言原本》](https://changkun.de/golang/)
+- [《跟煎鱼学GO》](https://eddycjy.gitbook.io/golang/)
