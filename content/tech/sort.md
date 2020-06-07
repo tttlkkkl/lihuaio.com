@@ -439,7 +439,7 @@ func CountingSort(s []int, maxValue int) {
 ![基数排序示意图](/images/radixSort2.gif "基数排序另外一种动图演示")
 
 
-## 说明
+## 参考
 文中所涉及到的图片资料等源自：
 - [《十大经典排序算法》](https://sort.hust.cc/)，[github](https://github.com/hustcc/JS-Sorting-Algorithm)。
 - [《5分钟学算法》](https://www.cnblogs.com/fivestudy/p/10212306.html)
