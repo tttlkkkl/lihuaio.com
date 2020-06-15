@@ -17,3 +17,4 @@ tags:
 - [《Go 语言问题集(Go Questions)》](https://www.bookstack.cn/read/qcrao-Go-Questions/README.md)
 - [《GO 语言原本》](https://changkun.de/golang/)
 - [《跟煎鱼学GO》](https://eddycjy.gitbook.io/golang/)
+- [《GO 算法模版》](https://greyireland.gitbook.io/algorithm-pattern/)
