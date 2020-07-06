@@ -139,7 +139,7 @@ spec:
     cn-shenzhen.192.168.81.155   Ready    <none>   95d   v1.14.8-aliyun.1
     cn-shenzhen.192.168.81.156   Ready    <none>   76d   v1.14.8-aliyun.1
     ```
-    刚好3个工作节点，如此我们可以设置`svc`标签其值分别为`基础服务(base)`、`重要服务(important)`、`一般服务(commonly)`，作为亲和性的调度依据。由于是测试环境，我们还是希望可以多节省一些成本所以只做亲和性设置。线上可以考虑加入反亲和性、污点设置在“浪费”一些资源的情况下更大程度的提升服务稳定性。当然按照以上分析，关键服务在设置资源限制的同时还要直接通过`nodeSelector`调度到基础服务节点。
+    刚好3个工作节点，如此我们可以设置 `svc` 标签,其值分别为`基础服务(base)`、`重要服务(important)`、`一般服务(commonly)`，作为亲和性的调度依据。由于是测试环境，我们还是希望可以多节省一些成本所以只做亲和性设置。线上可以考虑加入反亲和性、污点设置在“浪费”一些资源的情况下更大程度的提升服务稳定性。当然按照以上分析，关键服务在设置资源限制的同时还要直接通过`nodeSelector`调度到基础服务节点。
     ```shell
     kubectl label nodes  cn-shenzhen.192.168.81.154 svc=base
     kubectl label nodes  cn-shenzhen.192.168.81.155 svc=important
