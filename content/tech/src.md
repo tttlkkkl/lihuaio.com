@@ -14,4 +14,4 @@ tags:
 
 ## 优秀博客
 
-[《云原生实验室》](https://fuckcloudnative.io/)，干货满满让人膜拜的博客。
+[《云原生实验室》](https://fuckcloudnative.io/)，干货满满，让人膜拜的博客。
