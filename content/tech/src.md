@@ -12,3 +12,6 @@ tags:
 
 - [linux 工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html) · *[github 地址](https://github.com/me115/linuxtools_rst/tree/master/tool)*
 
+## 优秀博客
+
+[《云原生实验室》](https://fuckcloudnative.io/)，干货满满让人膜拜的博客。
