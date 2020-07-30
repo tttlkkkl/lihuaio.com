@@ -103,58 +103,49 @@ func Score() {
 func Score() {
 	// 遍历客户表
 	com.Log.Info("==========>开始对遍历客户信息，进行推荐指数计算", time.Now().Format(t.TimeFormat))
-	defer func() {
-		com.Log.Info("=================>客户推荐指数任务执行完毕", time.Now().Format(t.TimeFormat))
-	}()
-	var wg = &sync.WaitGroup{}
-	// 任务协程数量
-	var taskNum = 10
+	// 任务协程数量---这里的数量不能太多要控制在一个合理范围内，否则其他 grpc 等服务协程得不到调度，会出现服务拒绝的情况
+	var taskNum = 2
 	var dataCH = make(chan *entity.CustomerRelation, taskNum)
-	// 启动一个协程负责从数据库遍历数据
-	go func() {
-		wg.Add(1)
-		var limit uint64 = 1000
-		var offset uint64 = 0
-		for {
-			// 取出数据
-			rs, err := dao.TbCustomerRelation.RangeUserCustomerList(limit, offset, "uid", "crm_id")
-			if err != nil && err != dbr.ErrNotFound {
-				com.Log.Error("数据库读写失败", err)
-				return
-			}
-			// 退出数据循环读取
-			if len(rs) == 0 {
-				close(dataCH)
-				wg.Done()
-				return
-			}
-			for _, v := range rs {
-				dataCH <- v
-			}
-			offset = limit + offset
-		}
-	}()
+
+	ctx, cancel := context.WithCancel(context.Background())
 	// 任务协程
-	taskWorker := func() {
-		wg.Add(1)
+	taskWorker := func(ctx context.Context) {
 		for {
 			select {
 			case v, ok := <-dataCH:
 				if ok && v != nil {
 					DoScore(v.UID, v.CrmID, nil)
-				} else {
-					// 通道关闭，退出协程
-					wg.Done()
-					runtime.Goexit()
 				}
+			case <-ctx.Done():
+				return
 			}
 		}
 	}
 	// 启动指定数量的协程
 	for i := 0; i < taskNum; i++ {
-		go taskWorker()
+		go taskWorker(ctx)
 	}
-	wg.Wait()
+	var limit uint64 = 1000
+	var offset uint64 = 0
+	for {
+		// 取出数据
+		rs, err := dao.TbCustomerRelation.RangeUserCustomerList(limit, offset, "uid", "crm_id")
+		if err != nil && err != dbr.ErrNotFound {
+			com.Log.Error("数据库读写失败", err)
+			break
+		}
+		// 退出数据循环读取
+		if len(rs) == 0 {
+			break
+		}
+		for _, v := range rs {
+			dataCH <- v
+		}
+		offset = limit + offset
+	}
+	close(dataCH)
+	cancel()
+	com.Log.Info("=================>客户推荐指数任务执行完毕", time.Now().Format(t.TimeFormat))
 }
 ```
 
