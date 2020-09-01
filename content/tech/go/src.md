@@ -18,3 +18,4 @@ tags:
 - [《GO 语言原本》](https://changkun.de/golang/)
 - [《跟煎鱼学GO》](https://eddycjy.gitbook.io/golang/)
 - [《GO 算法模版》](https://greyireland.gitbook.io/algorithm-pattern/)
+- [《GO 语言设计与实现》](https://draveness.me/golang/)
