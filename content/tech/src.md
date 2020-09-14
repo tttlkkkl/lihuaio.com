@@ -14,4 +14,7 @@ tags:
 
 ## 优秀博客
 
-[《云原生实验室》](https://fuckcloudnative.io/)，干货满满，让人膜拜的博客。
+- [《云原生实验室》](https://fuckcloudnative.io/)，干货满满，让人膜拜的博客。
+
+## 数据和存储
+- [《redisbook》](http://redisbook.com/)
