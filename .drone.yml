@@ -3,7 +3,7 @@ name: build
 
 steps:
   - name: build-and-push
-    image: tttlkkkl/oss
+    image: tttlkkkl/oss:v1.0
     pull: if-not-exists
     environment:
       accessKeyID:

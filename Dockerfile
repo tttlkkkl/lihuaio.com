@@ -6,5 +6,6 @@ COPY hugo /usr/bin/
 COPY run.sh /usr/bin/run.sh
 RUN chmod 755 /usr/bin/ossutil64 && chmod +x /usr/bin/run.sh \
 && echo 'https://mirrors.aliyun.com/alpine/v3.12/main/' > /etc/apk/repositories \
-&& echo 'https://mirrors.aliyun.com/alpine/v3.12/community/' >> /etc/apk/repositories
+&& echo 'https://mirrors.aliyun.com/alpine/v3.12/community/' >> /etc/apk/repositories \
+&& apk add --no-cache git
 ENTRYPOINT [ "/usr/bin/run.sh" ]
