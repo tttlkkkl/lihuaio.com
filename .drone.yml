@@ -16,4 +16,4 @@ steps:
       - git submodule init
       - git submodule update
       - hugo --environment=production
-      - ossutil cp -r public oss://lihuaio/ -u
+      - ossutil64 cp -r public oss://lihuaio/ -u
