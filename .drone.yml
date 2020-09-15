@@ -13,5 +13,7 @@ steps:
       endpoint:
         from_secret: endpoint
     commands:
-    - hugo --environment=production
-    - ossutil cp -r public oss://lihuaio/ -u
+      - git submodule init
+      - git submodule update
+      - hugo --environment=production
+      - ossutil cp -r public oss://lihuaio/ -u
