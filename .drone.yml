@@ -2,20 +2,16 @@ kind: pipeline
 name: build
 
 steps:
-  - name: build-static
-    image: gohugoio/hugo
+  - name: build-and-push
+    image: tttlkkkl/oss
     pull: if-not-exists
+    environment:
+      accessKeyID:
+        from_secret: accessKeyID
+      accessKeySecret:
+        from_secret: accessKeySecret
+      endpoint:
+        from_secret: endpoint
     commands:
-    - hugo -D
-  - name: build-docker-image
-    image: plugins/docker
-    pull: if-not-exists
-    settings:
-      registry: hub.docker.com
-      repo: tttlkkkl/lihuaio.com
-      tags: ${DRONE_TAG}
-      purge: true
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
+    - hugo --environment=production
+    - ossutil cp -r public oss://lihuaio/ -u
