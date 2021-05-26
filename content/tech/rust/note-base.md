@@ -1,5 +1,5 @@
 ---
-title: "Note Base"
+title: "rust 笔记之变量与函数"
 date: 2021-05-15T11:31:46+08:00
 draft: false
 tags:
