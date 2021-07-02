@@ -64,11 +64,11 @@ docker-compose -f grafana-compose.yml up
 - 示例 ldap 超管账号为 `cn=root,dc=lihuaio,dc=com` 密码为：`admin`
 ### 项目效果
 - ldap 预置用户和用户组
-![ldap-admin](images/ldap/ldap.png)
+![ldap-admin](/images/ldap/ldap.png)
 - grafana 接入效果
-![grafana ldap](images/ldap/grafana-ldap.png)
+![grafana ldap](/images/ldap/grafana-ldap.png)
 - super 用户登录 grafana 
-![grafana ldap login](images/ldap/grafana-super.png)
+![grafana ldap login](/images/ldap/grafana-super.png)
 
 ### 图形化管理工具推荐
 - windows：`Ldap Admin` 
