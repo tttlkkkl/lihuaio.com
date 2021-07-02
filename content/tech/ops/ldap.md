@@ -1,5 +1,5 @@
 ---
-title: "Ldap"
+title: "可快速启动的 LDAP 示例"
 date: 2021-07-01T18:28:11+08:00
 draft: false
 tags:
