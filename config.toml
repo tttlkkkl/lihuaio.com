@@ -1333,3 +1333,10 @@ uglyURLs = false
     fofVideoWebm = "/404.mp4"
     fofVideoMp4 = "/404.webm"
     # 说明：视频地址可留空（""）
+    ######################################
+    # 自行添加的百度统计
+
+    # 说明：仅在生产环境（production）下渲染
+
+    enableBaiduAnalytics = true
+    baiduAnalyticsID = ""
