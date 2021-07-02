@@ -90,7 +90,7 @@ DNS.3 = ldap.lihuaio.com
 |环境变量|范例|说明|
 |---|---|---|
 |COUNTY: |"CN"|国家|
-|STATE: |"GD"|周、省份|
+|STATE: |"GD"|州、省份|
 |LOCATION: |"shenzhen"|城市|
 |ORGANISATION: |"lihuaio"|组织名字|
 |ROOT_CN: |"lihuaio"|根证书组织名字|
